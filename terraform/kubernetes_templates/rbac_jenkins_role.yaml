@@ -1,0 +1,11 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: jenkins-deployment-access
+rules:
+- apiGroups: ["apps", "extensions"]
+  resources: ["deployments"]
+  resourceNames: ["app-deployment"]
+  verbs: ["get", "patch"]
+
+

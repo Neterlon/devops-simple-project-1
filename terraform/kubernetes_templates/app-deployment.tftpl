@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-deployment
+  labels:
+    app: ${application_name}
+spec: 
+  replicas: ${pod_replicas}
+  selector:
+    matchLabels:
+      app: ${application_name}
+  template:
+    metadata:
+      labels:
+        app: ${application_name}
+    spec:
+      containers:
+      - name: ${application_name}-app
+        image: ${container_image}
+        env:
+        - name: MYSQL_SERVER
+          value: ${DB_endpoint}
+        ports:
+        - containerPort: ${container_port}
+          name: app-port
+
+
