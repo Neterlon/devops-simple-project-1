@@ -1,0 +1,3 @@
+terraform/cluster_kubeconfig
+terraform/variable_values.auto.tfvars
+lambda_functions/*.zip
