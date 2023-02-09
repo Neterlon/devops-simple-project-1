@@ -1,5 +1,5 @@
 # About the Project
-This project was created for the purpose of obtaining basic practical skills in DevOps. To fulfill this goal, the "Infrastructure as code" approach was used to develop the infrastructure; the CI/CD pipeline was built to automate software delivery. This project was created for deployment on the AWS cloud provider. It's easy and quick to deploy this project if you follow the instructions below.
+This project was created for the purpose of obtaining basic practical skills in DevOps. To fulfill this goal, the "Infrastructure as code" approach was used to develop the infrastructure; the CI/CD pipeline was built to automate software delivery. This project was created for deployment on the AWS cloud provider; "spring-petclinic" app was selected for deployment. It's easy and quick to deploy this project if you follow the instructions below.
 
 # Prerequisites
 + Jenkins server with suggested (default) plugins installed.
@@ -13,8 +13,7 @@ Jenkins, in turn, takes the source code of the application from the repository, 
 # Configuration
 ## AWS
 1. Create an IAM user with administrator permissions to deploy the infrastructure through terraform.
-2. Create an IAM user with permissions to Read and List EKS service.        (In AWS create a user that can run deployment rollouts.)
-
+2. Create an IAM user with permissions to Read and List EKS service.
 ## DockerHub
 Create a DockerHub repository. Specify the repository name using "DOCKERHUB_REPOSITORY" variable in the Jenkinfile later.
 
@@ -45,4 +44,4 @@ In the "variable_values.auto.tfvars" located in the terraform folder, you can ea
 
 # Usage
 Configure AWS, DockerHub, Slack, Jenkins according to the instructions above. Download this repository `git clone https://github.com/Neterlon/devops-simple-project-1.git`. Open the "terraform" directory to set the configurations in the "variable_values.auto.tfvars" file. 
-After configuring the variable_values.auto.tfvars file, in the same directory execute `terraform apply` to deploy the infrastructure. A "cluster_kubeconfig" file will be created in the same directory. In order for Jenkins to update the container images on the cluster, сopy the "cluster_kubeconfig" file to the Jenkins server using the credential type "file" and setting the credential ID to "aws-jenkins-access". After the configuration is completed, it is possible to run the Jenkins pipeline.
+After configuring the variable_values.auto.tfvars file, in the same directory execute `terraform init` and `terraform apply` to deploy the infrastructure. A "cluster_kubeconfig" file will be created in the same directory. In order for Jenkins to update the container images on the cluster, сopy the "cluster_kubeconfig" file to the Jenkins server using the credential type "file" and setting the credential ID to "aws-jenkins-access". After the configuration is completed, it is possible to run the Jenkins pipeline.

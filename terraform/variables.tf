@@ -13,7 +13,7 @@ variable "aws_cred_profile" {
 # ARN of a jenkins user 
 variable "jenkins_user_arn" {
   description = "ARN of a jenkins user, that should have an access to the cluster to update the deployment"
-  default = "default"
+  default     = "default"
 }
 
 # Default tags 

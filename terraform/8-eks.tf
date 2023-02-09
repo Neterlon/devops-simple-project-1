@@ -46,6 +46,6 @@ resource "aws_eks_cluster" "main" {
 
 # Authentication token to communicate with an EKS cluster
 data "aws_eks_cluster_auth" "main" {
-    name = "main_eks"
+  name = "main_eks"
 }
 
