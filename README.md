@@ -7,8 +7,13 @@ This project was created for the purpose of obtaining basic practical skills in 
 + Host with terraform, kubectl and aws cli installed.
 
 # How it works
-First, it is needed to deploy infrastructure using Terraform. Teraform creates: a separate VPC; 2 public subnets; 4 private subnets; 2 NAT gateway so that the cluster has access to the Internet; Internet Gateway; RDS; EKS cluster. A Lambda function is also created and called to initialize the database. <br/>
+First, it is needed to deploy infrastructure using Terraform. Teraform creates: a separate VPC; 2 public subnets; 4 private subnets; 2 NAT gateway so that the cluster has access to the Internet; Internet Gateway; RDS; EKS cluster. A Lambda function is also created and called to initialize the database.
+### Infrastructure deployed with Terraform:
+![Infrastructure deployed with Terraform](img/aws_infrastructure.png "Infrastructure deployed with Terraform")
+
 Jenkins, in turn, takes the source code of the application from the repository, builds the code, executes unit tests, sends the application artifact to DockerHub, deploys a new version of the application to the EKS cluster, and finally sends a pipeline execution message to Slack.
+### Jenkins pipeline:
+![Jenkins pipeline](img/jenkins_pipeline.png "Jenkins pipeline")
 
 # Configuration
 ## AWS
