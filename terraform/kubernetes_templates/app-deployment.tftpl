@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: ${application_name}-app
-        image: ${container_image}
+        image: ${container_image}:latest
         env:
         - name: MYSQL_SERVER
           value: ${DB_endpoint}

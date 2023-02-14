@@ -13,7 +13,7 @@ resource "aws_vpc" "main" {
 
 # VPC NACL
 resource "aws_network_acl" "vpc_nacl" {
-  vpc_id = aws_vpc.main
+  vpc_id = aws_vpc.main.id
   ingress {
     protocol   = "tcp"
     rule_no    = 100
