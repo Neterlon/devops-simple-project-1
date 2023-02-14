@@ -22,11 +22,11 @@ pipeline {
             steps {
                 sh "mkdir -p app-repo"
                 dir("app-repo") {
-                    git branch: 'main', url: '${GITHUB_REPOSITORY}'
+                    git branch: 'main', url: "${GITHUB_REPOSITORY}"
                 }
                 sh "mkdir -p devops-repo"
                 dir("devops-repo") {
-                    git branch: 'docker', url: '${GITHUB_REPOSITORY_DEVOPS}'
+                    git branch: 'docker', url: "${GITHUB_REPOSITORY_DEVOPS}"
                 }
             }
         }
